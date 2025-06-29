@@ -64,7 +64,7 @@ project_id = st.secrets.get("ibm", {}).get("project_id", "")
 
 if api_key and project_id:
     st.sidebar.success("✅ Credentials loaded from secrets")
-    # Hide sensitive information - show only status
+    # Hide sensitive information - only show that credentials are loaded
 else:
     st.sidebar.warning("⚠️ Secrets not found, please enter manually")
     api_key = st.sidebar.text_input("IBM API Key", type="password", help="Enter your IBM Cloud API key")
@@ -75,14 +75,9 @@ region = st.sidebar.selectbox("Region", ["us-south", "eu-de", "eu-gb", "jp-tok"]
 model_choice = st.sidebar.selectbox(
     "Select Model",
     [
-        "ibm/granite-13b-instruct-v2",
-        "meta-llama/llama-3-1-70b-instruct",
         "meta-llama/llama-3-2-3b-instruct",
-        "meta-llama/llama-2-13b-chat",
         "google/flan-ul2",
-        "google/flan-t5-xxl",
-        "mistralai/mixtral-8x7b-instruct-v01",
-        "mistralai/mistral-large"
+        "mistralai/mixtral-8x7b-instruct-v01"
     ]
 )
 
